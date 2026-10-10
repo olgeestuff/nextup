@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Change this to rename your app. Your link becomes https://<name>.<your-subdomain>.workers.dev
+  "name": "nextup",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "durable_objects": {
+    "bindings": [{ "name": "QUEUE", "class_name": "Queue" }]
+  },
+  // SQLite-backed Durable Objects are the kind included in Cloudflare's free plan.
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Queue"] }],
+  "observability": { "enabled": true }
+}

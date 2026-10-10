@@ -1,0 +1,16 @@
+{
+  "name": "nextup",
+  "version": "1.0.0",
+  "description": "A shared queue anyone can join by link. One owner controls the order.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

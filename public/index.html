@@ -1,0 +1,1366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NextUp</title>
+<meta name="description" content="A shared queue anyone can join with a link. Everyone sees the order live. One owner controls it.">
+<meta property="og:title" content="NextUp: a queue you join with a link">
+<meta property="og:description" content="Add your name and watch the order live. No sign-up, no app.">
+<meta name="theme-color" content="#F4F5FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1030" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232536D6'/%3E%3Cpath d='M12.5 11.5 17 8.5h2.5v15H16V12.6l-3.5 2.2z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+@font-face {
+  font-family: "Big Shoulders Display";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url(data:font/woff2;base64,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) format("woff2");
+}
+
+:root {
+  --paper: #F4F5FB;
+  --surface: #FFFFFF;
+  --ink: #14183A;
+  --muted: #555B78;
+  --line: #D6D9EA;
+  --cobalt: #2536D6;
+  --on-cobalt: #FFFFFF;
+  --marigold: #FFC233;
+  --on-marigold: #14183A;
+  --danger: #B3261E;
+  --live: #17784A;
+  --shadow: 0 10px 30px rgba(20, 24, 58, .18);
+  --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0D1030;
+    --surface: #181C48;
+    --ink: #EEF0FF;
+    --muted: #A6ABCF;
+    --line: #2C3169;
+    --cobalt: #3F51F2;
+    --danger: #FF8A80;
+    --live: #5BD69B;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .5);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.45 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+h1, h2, p, ol, ul { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 14px max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left));
+}
+body.has-bar .page { padding-bottom: 190px; }
+
+/* ---- Top bar ---- */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
+.brand {
+  font: 800 24px/1 var(--display);
+  letter-spacing: .01em;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+/* ---- Type ---- */
+.hero {
+  font: 800 clamp(46px, 14vw, 76px)/.92 var(--display);
+  letter-spacing: .005em;
+  margin: 28px 0 18px;
+  text-wrap: balance;
+}
+.title {
+  font: 800 clamp(36px, 10.5vw, 52px)/.98 var(--display);
+  letter-spacing: .005em;
+  margin: 18px 0 10px;
+  overflow-wrap: anywhere;
+}
+.title.plain { font: 700 clamp(26px, 7.5vw, 34px)/1.15 var(--body); letter-spacing: -.01em; }
+.lede { font-size: 19px; max-width: 34em; color: var(--muted); }
+.h2 { font: 700 15px/1.3 var(--body); color: var(--muted); margin: 40px 0 6px; }
+.note, .hint { color: var(--muted); font-size: 15px; }
+
+/* ---- Status line under the title ---- */
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; font-size: 15px; color: var(--muted); }
+.live { display: inline-flex; align-items: center; gap: 7px; }
+.live::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--muted); opacity: .6; }
+.live[data-on="true"] { color: var(--live); font-weight: 600; }
+.live[data-on="true"]::before { background: var(--live); opacity: 1; }
+.tag {
+  display: inline-block; flex: none;
+  font-size: 13px; font-weight: 650; line-height: 1;
+  padding: 6px 9px; border-radius: 999px; white-space: nowrap;
+}
+.tag-line { border: 1.5px solid currentColor; color: var(--ink); }
+.tag-next { background: rgba(255, 255, 255, .2); color: var(--on-cobalt); }
+.tag-you { background: var(--marigold); color: var(--on-marigold); }
+
+/* ---- Buttons and fields ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 8px 18px;
+  border: 1.5px solid var(--ink); border-radius: 10px;
+  background: transparent; color: var(--ink);
+  font-weight: 650; font-size: 16px; line-height: 1.15; text-align: center; text-decoration: none;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.btn:active { transform: translateY(1px); }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .4; cursor: default; }
+.btn-primary { background: var(--cobalt); border-color: var(--cobalt); color: var(--on-cobalt); }
+.btn-ink { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn-quiet { border-color: var(--line); }
+.btn-danger { border-color: var(--danger); color: var(--danger); }
+.btn-danger-fill { background: var(--danger); border-color: var(--danger); color: var(--paper); }
+.btn-on-gold { border-color: var(--on-marigold); color: var(--on-marigold); min-height: 44px; padding: 6px 14px; font-size: 15px; }
+.btn-wide { width: 100%; }
+
+label { display: block; font-weight: 650; font-size: 15px; margin-bottom: 6px; }
+input[type="text"] {
+  width: 100%; min-width: 0; min-height: 48px; padding: 0 14px;
+  border: 1.5px solid var(--ink); border-radius: 10px;
+  background: var(--surface); color: var(--ink); font-size: 17px;
+}
+input[type="text"]::placeholder { color: var(--muted); opacity: .75; }
+.form-error { color: var(--danger); font-size: 15px; font-weight: 600; margin-top: 8px; }
+
+.join { margin-top: 22px; }
+.join-row { display: flex; gap: 8px; }
+.join-row input { flex: 1; }
+.join-row .btn { flex: none; }
+@media (max-width: 380px) {
+  .join-row { flex-direction: column; }
+}
+
+/* ---- "Your queue is ready" ---- */
+.ready {
+  margin-top: 22px; padding: 18px;
+  background: var(--surface); border: 1.5px solid var(--ink); border-radius: 14px;
+}
+.ready h2 { font: 800 28px/1 var(--display); letter-spacing: .01em; margin-bottom: 6px; }
+.link-row { padding: 14px 0; border-top: 1px solid var(--line); margin-top: 14px; }
+.link-row strong { display: block; }
+.link-row span { display: block; color: var(--muted); font-size: 15px; margin-bottom: 10px; }
+.ready > .btn { margin-top: 4px; }
+
+/* ---- Your place in line ---- */
+.spot {
+  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 16px;
+  margin-top: 22px; padding: 14px 16px 16px;
+  background: var(--marigold); color: var(--on-marigold); border-radius: 14px;
+}
+.spot-num { font: 800 76px/.9 var(--display); min-width: 44px; text-align: center; }
+.spot-line { font-weight: 700; font-size: 19px; line-height: 1.2; overflow-wrap: anywhere; }
+.spot-sub { font-size: 15px; }
+.spot-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.spot :focus-visible { outline-color: var(--on-marigold); }
+.spot.bump .spot-num { animation: bump .5s ease-out; }
+@keyframes bump { 0% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+.note { margin-top: 22px; padding: 12px 14px; border: 1.5px dashed var(--line); border-radius: 10px; }
+
+/* ---- Owner controls ---- */
+.owner { margin-top: 8px; }
+.owner .btn-wide { margin-top: 6px; }
+.owner > .hint { margin-top: 10px; }
+.owner + .list { margin-top: 14px; }
+.settings { margin-bottom: 12px; }
+summary {
+  cursor: pointer; font-weight: 650; font-size: 15px;
+  padding: 12px 0; min-height: 44px; width: fit-content;
+}
+.settings { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 6px; }
+.settings .btn { min-height: 44px; padding: 6px 14px; font-size: 15px; }
+.settings .hint { flex-basis: 100%; margin-top: 4px; }
+
+/* ---- The line ---- */
+.list { margin-top: 22px; }
+.row {
+  position: relative;
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.row-main {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 12px;
+  min-height: 58px; padding: 8px 10px 8px 4px;
+  background: none; border: 0; border-radius: 10px; text-align: left;
+}
+button.row-main { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.row > .row-main:first-child { padding-left: 0; }
+.num {
+  flex: none; width: 46px; text-align: center;
+  font: 800 34px/1 var(--display);
+  font-variant-numeric: tabular-nums;
+}
+.name { flex: 1; min-width: 0; font-weight: 550; overflow-wrap: anywhere; }
+.row-text { flex: 1; min-width: 0; }
+.row-text strong { display: block; }
+.row-text span { display: block; color: var(--muted); font-size: 15px; }
+
+/* Number one is the whole point of the page. */
+.row.first {
+  background: var(--cobalt); color: var(--on-cobalt);
+  border-bottom-color: transparent; border-radius: 14px;
+  margin-bottom: 4px;
+}
+.row.first .row-main { min-height: 78px; }
+.row.first .num { font-size: 54px; width: 56px; }
+.row.first .name { font-size: 20px; font-weight: 700; }
+.row.first .row-text span { color: var(--on-cobalt); opacity: .85; }
+.row.first :focus-visible { outline-color: var(--marigold); outline-offset: -4px; }
+
+.row.me:not(.first)::before {
+  content: ""; position: absolute; left: -8px; top: 10px; bottom: 10px;
+  width: 5px; border-radius: 3px; background: var(--marigold);
+}
+.row.selected:not(.first) { background: var(--surface); box-shadow: inset 0 0 0 2px var(--ink); border-radius: 10px; border-bottom-color: transparent; }
+.row.first.selected { box-shadow: inset 0 0 0 3px var(--marigold); }
+
+.grip {
+  flex: none; width: 40px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); cursor: grab; touch-action: none;
+  -webkit-user-select: none; user-select: none;
+}
+.row.first .grip { color: var(--on-cobalt); opacity: .8; }
+.grip svg { width: 16px; height: 24px; pointer-events: none; }
+
+.list.sorting .row { transition: transform .16s ease; }
+.list.sorting .row.dragging {
+  transition: none; z-index: 5; cursor: grabbing;
+  box-shadow: var(--shadow); border-radius: 12px; border-bottom-color: transparent;
+}
+.list.sorting .row.dragging:not(.first) { background: var(--surface); }
+.list.sorting { -webkit-user-select: none; user-select: none; }
+
+.empty { margin-top: 22px; padding: 26px 16px; text-align: center; color: var(--muted); border: 1.5px dashed var(--line); border-radius: 14px; }
+
+.steps .row-main { align-items: flex-start; padding: 14px 10px 14px 4px; }
+.steps .row.first .row-main { align-items: center; min-height: 0; padding: 16px 12px 16px 4px; }
+.steps .num { padding-top: 2px; }
+.steps .row.first .num { font-size: 44px; padding-top: 0; }
+
+.mine a {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 52px; padding: 8px 2px; border-bottom: 1px solid var(--line);
+  text-decoration: none; font-weight: 600; overflow-wrap: anywhere;
+}
+.mine a span:last-child { color: var(--muted); font-weight: 400; font-size: 15px; flex: none; }
+
+/* ---- Options for the selected name (owner) ---- */
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  background: var(--surface); border-top: 1.5px solid var(--ink);
+  box-shadow: 0 -8px 24px rgba(20, 24, 58, .14);
+  padding: 8px max(12px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+}
+.bar-inner { max-width: 560px; margin: 0 auto; }
+.bar-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.bar-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-name span { font-weight: 400; color: var(--muted); }
+.icon-btn {
+  flex: none; width: 44px; height: 44px; border: 0; border-radius: 10px;
+  background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.icon-btn svg, .bar-actions svg { width: 22px; height: 22px; }
+.bar-actions { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-top: 2px; }
+.bar-actions button {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  min-height: 58px; padding: 6px 2px;
+  border: 1.5px solid var(--line); border-radius: 10px; background: none;
+  font-size: 12.5px; font-weight: 600; cursor: pointer; touch-action: manipulation;
+}
+.bar-actions button[aria-disabled="true"] { opacity: .35; cursor: default; }
+.bar-actions button[data-act="remove"] { color: var(--danger); }
+
+/* ---- Dialog and toast ---- */
+dialog {
+  width: min(92vw, 420px); padding: 20px; border: 1.5px solid var(--ink); border-radius: 16px;
+  background: var(--surface); color: var(--ink); box-shadow: var(--shadow);
+}
+dialog::backdrop { background: rgba(13, 16, 48, .55); }
+dialog h2 { font: 800 30px/1 var(--display); letter-spacing: .01em; margin-bottom: 8px; overflow-wrap: anywhere; }
+dialog p { color: var(--muted); }
+dialog input { margin-top: 14px; }
+.dialog-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+
+.toast {
+  position: fixed; left: 50%; top: max(14px, env(safe-area-inset-top)); z-index: 40;
+  transform: translateX(-50%);
+  max-width: min(92vw, 460px); padding: 12px 16px; border-radius: 10px;
+  background: var(--ink); color: var(--paper); font-weight: 600; font-size: 15px;
+  box-shadow: var(--shadow); text-align: center;
+}
+
+footer { margin-top: 44px; color: var(--muted); font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<noscript><p style="padding:24px">NextUp needs JavaScript to show the live queue.</p></noscript>
+
+<!-- Start page -->
+<main id="home" class="page" hidden>
+  <header class="top"><span class="brand">NextUp</span></header>
+  <h1 class="hero">One link. Everyone sees the line.</h1>
+  <p class="lede">Make a queue and share its link. People add their own names and watch the order update live. Only you can change it.</p>
+
+  <form id="create" class="join" novalidate>
+    <label for="queue-title">Name your queue</label>
+    <div class="join-row">
+      <input id="queue-title" type="text" maxlength="60" placeholder="Friday open mic" autocomplete="off" enterkeyhint="go">
+      <button id="create-btn" class="btn btn-primary" type="submit">Create queue</button>
+    </div>
+    <p id="create-error" class="form-error" role="alert" hidden></p>
+  </form>
+
+  <section id="mine" class="mine" hidden>
+    <h2 class="h2">Queues you manage on this device</h2>
+    <ul id="mine-list"></ul>
+  </section>
+
+  <h2 class="h2">How it works</h2>
+  <ol class="list steps" style="margin-top:8px">
+    <li class="row first"><div class="row-main"><span class="num">1</span><div class="row-text"><strong>Create a queue</strong><span>You get two links: a queue link and an owner link.</span></div></div></li>
+    <li class="row"><div class="row-main"><span class="num">2</span><div class="row-text"><strong>Share the queue link</strong><span>Anyone who opens it can add their name and see the order. No sign-up, no app to install.</span></div></div></li>
+    <li class="row"><div class="row-main"><span class="num">3</span><div class="row-text"><strong>Keep the owner link</strong><span>It is the only way to reorder, remove names, or close the queue. Give it to co-hosts you trust.</span></div></div></li>
+  </ol>
+  <footer><span>Free and open source.</span> <a class="source-link" hidden>Source code</a></footer>
+</main>
+
+<!-- A queue -->
+<main id="queue" class="page" hidden>
+  <header class="top">
+    <a class="brand" href="/">NextUp</a>
+    <button type="button" id="share" class="btn btn-quiet">Share queue link</button>
+  </header>
+
+  <h1 id="title" class="title"></h1>
+  <p class="meta">
+    <span id="live" class="live" data-on="false">Connecting</span>
+    <span id="count"></span>
+    <span id="closed" class="tag tag-line" hidden>Closed to new names</span>
+  </p>
+
+  <section id="ready" class="ready" hidden aria-labelledby="ready-h">
+    <h2 id="ready-h">Your queue is ready</h2>
+    <p>It has two links. Share the first. Keep the second to yourself.</p>
+    <div class="link-row">
+      <strong>Queue link</strong>
+      <span>Anyone who opens it can add their name and see the order.</span>
+      <button type="button" id="copy-public" class="btn btn-primary">Copy queue link</button>
+    </div>
+    <div class="link-row">
+      <strong>Owner link</strong>
+      <span>Whoever opens it can reorder and remove names. This device already has it saved. Copy it to manage the queue from another device or to add a co-host.</span>
+      <button type="button" id="copy-owner-new" class="btn">Copy owner link</button>
+    </div>
+    <button type="button" id="ready-close" class="btn btn-quiet">Got it</button>
+  </section>
+
+  <section id="spot" class="spot" hidden aria-label="Your place in line">
+    <div id="spot-num" class="spot-num"></div>
+    <div>
+      <p id="spot-line" class="spot-line"></p>
+      <p id="spot-sub" class="spot-sub"></p>
+    </div>
+    <div class="spot-actions">
+      <button type="button" id="rename-me" class="btn btn-on-gold">Change name</button>
+      <button type="button" id="leave" class="btn btn-on-gold">Leave queue</button>
+    </div>
+  </section>
+
+  <p id="closed-note" class="note" hidden>The host has closed this queue to new names. You can still watch the order.</p>
+
+  <form id="join" class="join" hidden novalidate>
+    <label for="name" id="name-label">Your name</label>
+    <div class="join-row">
+      <input id="name" type="text" maxlength="40" autocomplete="nickname" autocapitalize="words" enterkeyhint="done">
+      <button id="join-btn" class="btn btn-primary" type="submit">Join queue</button>
+    </div>
+    <p id="join-error" class="form-error" role="alert" hidden></p>
+  </form>
+
+  <section id="owner-tools" class="owner" hidden aria-label="Queue controls">
+    <details id="settings">
+      <summary>Queue settings</summary>
+      <div class="settings">
+        <button type="button" id="toggle-open" class="btn">Close to new names</button>
+        <button type="button" id="rename-queue" class="btn">Rename queue</button>
+        <button type="button" id="copy-owner" class="btn">Copy owner link</button>
+        <button type="button" id="rotate" class="btn">Reset owner link</button>
+        <button type="button" id="clear" class="btn btn-danger">Clear queue</button>
+        <p class="hint">Anyone with the owner link can reorder and remove names. Share it only with co-hosts. If it gets out, reset it and the old one stops working.</p>
+      </div>
+    </details>
+    <button type="button" id="next" class="btn btn-ink btn-wide">Done, next person</button>
+    <p class="hint">Drag the grip to reorder, or tap a name for more options.</p>
+  </section>
+
+  <ol id="list" class="list" aria-label="Queue order"></ol>
+  <p id="empty" class="empty" hidden></p>
+
+  <footer><span>Made with NextUp, free and open source.</span> <a href="/">Create your own queue</a> <a class="source-link" hidden>Source code</a></footer>
+</main>
+
+<!-- Missing or expired queue -->
+<main id="gone" class="page" hidden>
+  <header class="top"><a class="brand" href="/">NextUp</a></header>
+  <h1 class="title">This queue is gone</h1>
+  <p class="lede">The link may be mistyped, or the queue expired after 30 days without changes.</p>
+  <p style="margin-top:22px"><a class="btn btn-primary" href="/">Create a new queue</a></p>
+</main>
+
+<!-- Options for the name the owner selected -->
+<div id="bar" class="bar" role="toolbar" aria-label="Options for the selected name" hidden>
+  <div class="bar-inner">
+    <div class="bar-head">
+      <p id="bar-name" class="bar-name"></p>
+      <button type="button" id="bar-close" class="icon-btn" aria-label="Close options">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="bar-actions">
+      <button type="button" data-act="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12M12 20V9M7 13l5-5 5 5"/></svg><span>To top</span></button>
+      <button type="button" data-act="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg><span>Up</span></button>
+      <button type="button" data-act="down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13M6 12l6 6 6-6"/></svg><span>Down</span></button>
+      <button type="button" data-act="bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20h12M12 4v11M7 11l5 5 5-5"/></svg><span>To end</span></button>
+      <button type="button" data-act="rename"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg><span>Rename</span></button>
+      <button type="button" data-act="remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Remove</span></button>
+    </div>
+  </div>
+</div>
+
+<dialog id="dialog" aria-labelledby="dialog-title">
+  <form id="dialog-form" novalidate>
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-text"></p>
+    <label id="dialog-label" for="dialog-input" class="sr-only"></label>
+    <input id="dialog-input" type="text" autocomplete="off" hidden>
+    <p id="dialog-error" class="form-error" role="alert" hidden></p>
+    <div class="dialog-actions">
+      <button type="button" id="dialog-cancel" class="btn btn-quiet">Cancel</button>
+      <button type="submit" id="dialog-ok" class="btn btn-primary"></button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="sr" class="sr-only" aria-live="polite"></div>
+
+<script>
+(() => {
+"use strict";
+
+// Set this to your repository address to show a "Source code" link in the footer.
+const REPO_URL = "https://github.com/olgeestuff/nextup";
+
+const $ = (id) => document.getElementById(id);
+const make = (tag, className, text) => {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+};
+
+// ---- Storage on this device (the app still works if it is blocked) ----------
+const store = {
+  get(key) { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } },
+  del(key) { try { localStorage.removeItem(key); } catch {} },
+};
+
+function randomId(length = 16) {
+  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
+  return [...crypto.getRandomValues(new Uint8Array(length))].map((b) => alphabet[b % alphabet.length]).join("");
+}
+
+// ---- Talking to the server --------------------------------------------------
+async function api(path, { method = "GET", body, key } = {}) {
+  const headers = {};
+  if (body) headers["content-type"] = "application/json";
+  if (key) headers.authorization = "Bearer " + key;
+  let response;
+  try {
+    response = await fetch(path, { method, headers, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
+  } catch {
+    const error = new Error("No connection. Check your internet and try again.");
+    error.status = 0;
+    throw error;
+  }
+  let data = {};
+  try { data = await response.json(); } catch {}
+  if (!response.ok) {
+    const error = new Error(data.error || "Something went wrong. Try again.");
+    error.status = response.status;
+    error.data = data;
+    throw error;
+  }
+  return data;
+}
+
+// ---- Small interface helpers ------------------------------------------------
+let toastTimer;
+function toast(message) {
+  const node = $("toast");
+  node.textContent = message;
+  node.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { node.hidden = true; }, 3800);
+}
+
+function say(message) {
+  const node = $("sr");
+  node.textContent = "";
+  setTimeout(() => { node.textContent = message; }, 60);
+}
+
+async function copyText(text, done) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const area = make("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.cssText = "position:fixed;opacity:0;top:0;left:0";
+    document.body.append(area);
+    area.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch {}
+    area.remove();
+    if (!ok) { window.prompt("Copy this link:", text); return; }
+  }
+  toast(done);
+}
+
+function showError(node, message) {
+  node.textContent = message || "";
+  node.hidden = !message;
+}
+
+// One dialog for every confirmation and every "type a name" question.
+const dialog = $("dialog");
+let dialogConfirm = null;
+let dialogBusy = false;
+function ask({ title, text = "", input = null, ok, danger = false, onConfirm }) {
+  $("dialog-title").textContent = title;
+  $("dialog-text").textContent = text;
+  $("dialog-text").hidden = !text;
+  const field = $("dialog-input");
+  field.hidden = !input;
+  if (input) {
+    field.value = input.value || "";
+    field.maxLength = input.max;
+    $("dialog-label").textContent = input.label;
+  }
+  const okButton = $("dialog-ok");
+  okButton.textContent = ok;
+  okButton.className = "btn " + (danger ? "btn-danger-fill" : "btn-primary");
+  showError($("dialog-error"), "");
+  dialogConfirm = onConfirm;
+  dialog.showModal();
+  if (input) { field.focus(); field.select(); }
+}
+$("dialog-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (dialogBusy || !dialogConfirm) return;
+  dialogBusy = true;
+  $("dialog-ok").disabled = true;
+  try {
+    const field = $("dialog-input");
+    await dialogConfirm(field.hidden ? undefined : field.value);
+    dialog.close();
+  } catch (error) {
+    showError($("dialog-error"), error.message);
+  } finally {
+    dialogBusy = false;
+    $("dialog-ok").disabled = false;
+  }
+});
+$("dialog-cancel").addEventListener("click", () => dialog.close());
+
+for (const link of document.querySelectorAll(".source-link")) {
+  if (REPO_URL) { link.href = REPO_URL; link.hidden = false; }
+}
+
+// ---- Which page is this? ----------------------------------------------------
+const queueMatch = location.pathname.match(/^\/q\/([a-z0-9]+)\/?$/);
+if (queueMatch) startQueue(queueMatch[1]);
+else startHome();
+
+// =============================================================================
+// Start page
+// =============================================================================
+function startHome() {
+  $("home").hidden = false;
+
+  const mine = store.get("nextup.mine") || [];
+  if (mine.length) {
+    const list = $("mine-list");
+    for (const item of mine) {
+      const link = make("a");
+      link.href = "/q/" + item.id;
+      link.append(make("span", "", item.title || "Queue"), make("span", "", "Open"));
+      const row = make("li");
+      row.append(link);
+      list.append(row);
+    }
+    $("mine").hidden = false;
+  }
+
+  $("create").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const button = $("create-btn");
+    if (button.disabled) return;
+    button.disabled = true;
+    showError($("create-error"), "");
+    try {
+      const title = $("queue-title").value.trim();
+      const created = await api("/api/queues", { method: "POST", body: { title } });
+      location.assign(`/q/${created.id}#owner=${created.ownerKey}&new=1`);
+    } catch (error) {
+      showError($("create-error"), error.message);
+      button.disabled = false;
+    }
+  });
+}
+
+// =============================================================================
+// Queue page
+// =============================================================================
+function startQueue(id) {
+  const keys = {
+    owner: "nextup.owner." + id,
+    me: "nextup.me." + id,
+  };
+  const publicLink = `${location.origin}/q/${id}`;
+
+  let state = null; // the queue as last heard from the server
+  let ownerKey = null; // present only on the owner's devices
+  let isOwner = false;
+  let me = null; // { entryId, token } for the name this device added
+  let selectedId = null; // the name the owner tapped
+  let drag = null;
+  let gone = false;
+  let loaded = false;
+
+  // Owner changes are sent one at a time. While any are in flight, incoming
+  // updates wait, so the list never jumps backwards under the owner's finger.
+  let pending = 0;
+  let waitingState = null;
+  let needsRefetch = false;
+  let chain = Promise.resolve();
+
+  let device = store.get("nextup.device");
+  if (!device) { device = randomId(); store.set("nextup.device", device); }
+
+  // The owner key arrives after the # so it is never sent to a server in a URL
+  // and never shows up in logs. It is saved on this device and then removed
+  // from the address bar, so copying the address shares only the public link.
+  const fragment = new URLSearchParams(location.hash.slice(1));
+  const arrivedKey = fragment.get("owner");
+  const isNew = fragment.get("new") === "1";
+  if (arrivedKey) {
+    ownerKey = arrivedKey;
+    if (store.set(keys.owner, arrivedKey)) history.replaceState(null, "", location.pathname);
+  } else {
+    ownerKey = store.get(keys.owner);
+  }
+  me = store.get(keys.me);
+
+  const ownerLink = () => `${publicLink}#owner=${ownerKey}`;
+
+  // ---- First load ----
+  (async () => {
+    try {
+      const result = await api(`/api/q/${id}`, { key: ownerKey });
+      isOwner = result.owner === true;
+      if (ownerKey && !isOwner) {
+        store.del(keys.owner);
+        ownerKey = null;
+        toast("That owner link no longer works. You can still watch the queue.");
+      }
+      if (isOwner) {
+        rememberMine(result.state.title);
+        if (isNew) $("ready").hidden = false;
+      }
+      $("queue").hidden = false;
+      loaded = true;
+      receive(result.state, true);
+      connect();
+    } catch (error) {
+      if (error.status === 404) return showGone();
+      $("queue").hidden = false;
+      $("title").textContent = "Could not load the queue";
+      $("count").textContent = error.message;
+      setTimeout(() => location.reload(), 5000);
+    }
+  })();
+
+  function showGone() {
+    gone = true;
+    forgetMine();
+    clearTimeout(reconnectTimer);
+    stopPolling();
+    if (socket) try { socket.close(); } catch {}
+    $("queue").hidden = true;
+    $("bar").hidden = true;
+    document.body.classList.remove("has-bar");
+    $("gone").hidden = false;
+    document.title = "Queue not found | NextUp";
+  }
+
+  function rememberMine(title) {
+    const mine = (store.get("nextup.mine") || []).filter((item) => item.id !== id);
+    mine.unshift({ id, title });
+    store.set("nextup.mine", mine.slice(0, 20));
+  }
+  function forgetMine() {
+    const mine = store.get("nextup.mine");
+    if (mine) store.set("nextup.mine", mine.filter((item) => item.id !== id));
+  }
+
+  // ---- Receiving the order ----
+  function receive(next, force = false) {
+    if (!next || gone) return;
+    if (pending > 0 || drag) {
+      if (!waitingState || next.version >= waitingState.version) waitingState = next;
+      return;
+    }
+    if (state && !force && next.version <= state.version) return;
+    const previous = state;
+    state = next;
+    afterChange(previous);
+    render();
+  }
+
+  function afterChange(previous) {
+    if (isOwner && (!previous || previous.title !== state.title)) rememberMine(state.title);
+
+    if (me) {
+      const index = state.entries.findIndex((entry) => entry.id === me.entryId);
+      if (index === -1) {
+        me = null;
+        store.del(keys.me);
+        if (previous) toast("Your name is no longer in the queue.");
+        const saved = store.get("nextup.name");
+        if (typeof saved === "string" && !$("name").value) $("name").value = saved;
+      } else if (previous) {
+        const before = previous.entries.findIndex((entry) => entry.id === me.entryId);
+        if (before !== index) {
+          say(index === 0 ? "You are next up." : `You are now number ${index + 1} of ${state.entries.length}.`);
+          const card = $("spot");
+          card.classList.remove("bump");
+          void card.offsetWidth;
+          card.classList.add("bump");
+        }
+      }
+    }
+    if (selectedId && !state.entries.some((entry) => entry.id === selectedId)) selectedId = null;
+  }
+
+  // ---- Drawing ----
+  const latinOnly = /^[ -~ -ÿ–—‘’“”…]*$/;
+  const gripIcon = '<svg viewBox="0 0 16 24" fill="currentColor" aria-hidden="true"><circle cx="4" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="12" cy="19" r="2"/></svg>';
+
+  function render() {
+    const entries = state.entries;
+    const count = entries.length;
+    const myIndex = me ? entries.findIndex((entry) => entry.id === me.entryId) : -1;
+
+    // Heading
+    const title = $("title");
+    title.textContent = state.title;
+    title.classList.toggle("plain", !latinOnly.test(state.title));
+    $("count").textContent = count === 0 ? "Nobody waiting" : count === 1 ? "1 person waiting" : `${count} people waiting`;
+    $("closed").hidden = state.open;
+    document.title = myIndex >= 0 ? `Number ${myIndex + 1} in ${state.title} | NextUp` : `${state.title} | NextUp`;
+
+    // Your place in line
+    const spot = $("spot");
+    spot.hidden = myIndex < 0;
+    if (myIndex >= 0) {
+      $("spot-num").textContent = String(myIndex + 1);
+      $("spot-line").textContent = myIndex === 0 ? `${entries[0].name}, you are next up` : `${entries[myIndex].name}, you are number ${myIndex + 1}`;
+      $("spot-sub").textContent = myIndex === 0 ? "Nobody is ahead of you." : myIndex === 1 ? "1 person is ahead of you." : `${myIndex} people are ahead of you.`;
+    }
+
+    // Adding a name
+    const full = count >= state.limit;
+    const canAdd = isOwner ? !full : state.open && !full && myIndex < 0;
+    $("join").hidden = !canAdd;
+    $("name-label").textContent = isOwner ? "Add a name to the queue" : "Your name";
+    $("join-btn").textContent = isOwner ? "Add name" : "Join queue";
+    const note = $("closed-note");
+    note.hidden = isOwner || myIndex >= 0 || canAdd;
+    note.textContent = full && state.open
+      ? "This queue is full. You can still watch the order."
+      : "The host has closed this queue to new names. You can still watch the order.";
+
+    // Owner controls
+    $("owner-tools").hidden = !isOwner;
+    if (isOwner) {
+      const next = $("next");
+      next.disabled = count === 0;
+      next.textContent = count ? `${entries[0].name} is done, next person` : "Done, next person";
+      $("toggle-open").textContent = state.open ? "Close to new names" : "Reopen to new names";
+      $("clear").disabled = count === 0;
+    }
+
+    // The line
+    const list = $("list");
+    const focused = document.activeElement && document.activeElement.closest ? document.activeElement.closest("#list .row") : null;
+    const focusedId = focused ? focused.dataset.id : null;
+    const rows = entries.map((entry, index) => {
+      const row = make("li", "row");
+      row.dataset.id = entry.id;
+      if (index === 0) row.classList.add("first");
+      if (index === myIndex) row.classList.add("me");
+      if (entry.id === selectedId) row.classList.add("selected");
+
+      if (isOwner) {
+        const grip = make("span", "grip");
+        grip.innerHTML = gripIcon;
+        grip.title = "Drag to reorder";
+        row.append(grip);
+      }
+      const main = make(isOwner ? "button" : "div", "row-main");
+      if (isOwner) {
+        main.type = "button";
+        main.setAttribute("aria-pressed", entry.id === selectedId ? "true" : "false");
+      }
+      main.append(make("span", "num", String(index + 1)), make("span", "name", entry.name));
+      if (index === myIndex) main.append(make("span", "tag tag-you", "You"));
+      else if (index === 0) main.append(make("span", "tag tag-next", "Next up"));
+      row.append(main);
+      return row;
+    });
+    list.replaceChildren(...rows);
+    if (focusedId) {
+      const again = list.querySelector(`.row[data-id="${focusedId}"] .row-main`);
+      if (again && again.focus) again.focus({ preventScroll: true });
+    }
+
+    const empty = $("empty");
+    empty.hidden = count > 0;
+    empty.textContent = isOwner
+      ? "Nobody is waiting yet. Share the queue link so people can add their names."
+      : state.open ? "Nobody is waiting yet. Add your name to be first in line." : "Nobody is waiting.";
+
+    renderBar();
+  }
+
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function renderBar() {
+    const bar = $("bar");
+    const index = selectedId ? state.entries.findIndex((entry) => entry.id === selectedId) : -1;
+    const show = isOwner && index >= 0;
+    bar.hidden = !show;
+    document.body.classList.toggle("has-bar", show);
+    if (!show) return;
+    const last = state.entries.length - 1;
+    const name = $("bar-name");
+    name.replaceChildren(state.entries[index].name, make("span", "", `  number ${index + 1} of ${last + 1}`));
+    const disabled = { top: index === 0, up: index === 0, down: index === last, bottom: index === last };
+    for (const button of bar.querySelectorAll("[data-act]")) {
+      button.setAttribute("aria-disabled", disabled[button.dataset.act] ? "true" : "false");
+    }
+    const row = $("list").querySelector(`.row[data-id="${selectedId}"]`);
+    if (row) {
+      // Keep the selected name in view, clear of the options bar.
+      const box = row.getBoundingClientRect();
+      const limit = bar.getBoundingClientRect().top - 12;
+      const by = box.bottom > limit ? box.bottom - limit : box.top < 12 ? box.top - 64 : 0;
+      if (by) window.scrollBy({ top: by, behavior: calm.matches ? "auto" : "smooth" });
+    }
+  }
+
+  // ---- Live connection ----
+  let socket = null;
+  let retries = 0;
+  let pingTimer = null;
+  let pongTimer = null;
+  let pollTimer = null;
+  let reconnectTimer = null;
+
+  function setLive(on) {
+    const node = $("live");
+    node.dataset.on = String(on);
+    node.textContent = on ? "Live" : "Reconnecting";
+  }
+
+  function connect() {
+    if (gone || (socket && socket.readyState <= 1)) return;
+    clearTimeout(reconnectTimer);
+    const scheme = location.protocol === "https:" ? "wss:" : "ws:";
+    let current;
+    try {
+      current = new WebSocket(`${scheme}//${location.host}/api/q/${id}/ws`);
+    } catch {
+      startPolling();
+      return;
+    }
+    socket = current;
+    current.onopen = () => {
+      retries = 0;
+      setLive(true);
+      stopPolling();
+      clearInterval(pingTimer);
+      pingTimer = setInterval(checkAlive, 40000);
+    };
+    current.onmessage = (event) => {
+      // Any message proves the line is alive.
+      clearTimeout(pongTimer);
+      pongTimer = null;
+      if (event.data === "pong") return;
+      try {
+        const message = JSON.parse(event.data);
+        if (message.type === "state") receive(message.state);
+      } catch {}
+    };
+    current.onclose = (event) => {
+      if (event.code === 4001) return showGone();
+      dropped(current);
+    };
+    current.onerror = () => {};
+  }
+
+  /** The live connection is gone: fall back to asking, and try again with a growing wait. */
+  function dropped(current) {
+    if (socket !== current) return;
+    socket = null;
+    clearInterval(pingTimer);
+    clearTimeout(pongTimer);
+    pongTimer = null;
+    current.onopen = current.onmessage = current.onclose = null;
+    try { current.close(); } catch {}
+    if (gone) return;
+    setLive(false);
+    startPolling();
+    const wait = Math.min(1000 * 2 ** retries, 15000) + Math.random() * 500;
+    retries += 1;
+    clearTimeout(reconnectTimer);
+    reconnectTimer = setTimeout(connect, wait);
+  }
+
+  /** Phones often leave a connection looking open after it has died. Ask, and expect an answer. */
+  function checkAlive() {
+    const current = socket;
+    if (!current || current.readyState !== 1 || pongTimer) return;
+    try { current.send("ping"); } catch { dropped(current); return; }
+    pongTimer = setTimeout(() => { pongTimer = null; dropped(current); }, 5000);
+  }
+
+  // Safety net for networks that block live connections: ask every few seconds instead.
+  async function refetch() {
+    try {
+      const result = await api(`/api/q/${id}`);
+      receive(result.state);
+    } catch (error) {
+      if (error.status === 404) showGone();
+    }
+  }
+  function startPolling() {
+    if (pollTimer || gone) return;
+    pollTimer = setInterval(() => { if (!document.hidden) refetch(); }, 6000);
+  }
+  function stopPolling() {
+    clearInterval(pollTimer);
+    pollTimer = null;
+  }
+
+  // People switch between this page and their audio room all the time.
+  // Reconnect the moment they come back.
+  function wake() {
+    if (gone || !loaded || document.hidden) return;
+    if (!socket || socket.readyState > 1) { retries = 0; connect(); refetch(); }
+    else checkAlive();
+  }
+  document.addEventListener("visibilitychange", wake);
+  window.addEventListener("online", wake);
+  window.addEventListener("pageshow", wake);
+
+  // ---- Owner changes ----
+  function flushWaiting() {
+    if (pending > 0 || drag) return;
+    if (needsRefetch) {
+      needsRefetch = false;
+      waitingState = null;
+      api(`/api/q/${id}`).then((result) => receive(result.state, true)).catch(() => {});
+      return;
+    }
+    if (waitingState) {
+      const next = waitingState;
+      waitingState = null;
+      receive(next, true);
+    }
+  }
+
+  /** Send an owner change. `local` applies it on screen straight away. */
+  function ownerChange(action, body, local, quiet = false) {
+    if (local) { local(); render(); }
+    pending += 1;
+    const run = chain.then(() => api(`/api/q/${id}/${action}`, { method: "POST", body, key: ownerKey }));
+    chain = run.then(
+      (result) => {
+        if (result.state && (!waitingState || result.state.version >= waitingState.version)) waitingState = result.state;
+      },
+      (error) => {
+        needsRefetch = true;
+        if (error.status === 403) lostOwnership();
+        else if (!quiet) toast(error.message);
+      },
+    ).finally(() => {
+      pending -= 1;
+      flushWaiting();
+    });
+    return run;
+  }
+
+  function lostOwnership() {
+    if (!isOwner) return;
+    isOwner = false;
+    ownerKey = null;
+    selectedId = null;
+    store.del(keys.owner);
+    forgetMine();
+    toast("The owner link was reset. You can still watch the queue.");
+  }
+
+  function moveTo(entryId, newIndex) {
+    const entries = state.entries;
+    const from = entries.findIndex((entry) => entry.id === entryId);
+    if (from === -1) return;
+    const clamped = Math.max(0, Math.min(entries.length - 1, newIndex));
+    if (clamped === from) return;
+    const copy = entries.slice();
+    const [entry] = copy.splice(from, 1);
+    const beforeId = copy[clamped] ? copy[clamped].id : null;
+    copy.splice(clamped, 0, entry);
+    ownerChange("move", { entryId, beforeId }, () => { state = { ...state, entries: copy }; });
+    say(`${entry.name} is now number ${clamped + 1} of ${copy.length}.`);
+  }
+
+  function removeEntry(entryId) {
+    const entry = state.entries.find((item) => item.id === entryId);
+    if (!entry) return;
+    ownerChange("remove", { entryId }, () => {
+      state = { ...state, entries: state.entries.filter((item) => item.id !== entryId) };
+      if (selectedId === entryId) selectedId = null;
+    });
+  }
+
+  // ---- Buttons: everyone ----
+  $("share").addEventListener("click", async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: state ? state.title : "NextUp", text: "Add your name to the queue:", url: publicLink });
+        return;
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+      }
+    }
+    copyText(publicLink, "Queue link copied.");
+  });
+
+  $("join").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const field = $("name");
+    const button = $("join-btn");
+    const name = field.value.trim();
+    if (button.disabled) return;
+    if (!name) { showError($("join-error"), "Enter a name."); field.focus(); return; }
+    button.disabled = true;
+    showError($("join-error"), "");
+    try {
+      const result = await api(`/api/q/${id}/join`, {
+        method: "POST",
+        body: { name, device },
+        key: isOwner ? ownerKey : null,
+      });
+      field.value = "";
+      if (!isOwner) {
+        me = { entryId: result.entryId, token: result.token };
+        store.set(keys.me, me);
+        store.set("nextup.name", name);
+      }
+      receive(result.state, true);
+      if (isOwner) { field.focus(); say(`${name} added at number ${result.state.entries.length}.`); }
+      else say(`You joined at number ${result.state.entries.length}.`);
+    } catch (error) {
+      showError($("join-error"), error.message);
+      if (error.status === 403 || error.status === 409) refetch();
+    } finally {
+      button.disabled = false;
+    }
+  });
+  const savedName = store.get("nextup.name");
+  if (typeof savedName === "string" && !isOwnerDevice()) $("name").value = savedName;
+  function isOwnerDevice() { return Boolean(ownerKey); }
+
+  $("leave").addEventListener("click", () => {
+    if (!me) return;
+    ask({
+      title: "Leave the queue?",
+      text: "You lose your place. If you join again you go to the end.",
+      ok: "Leave queue",
+      danger: true,
+      onConfirm: async () => {
+        const result = await api(`/api/q/${id}/leave`, { method: "POST", body: { entryId: me.entryId, token: me.token } });
+        me = null;
+        store.del(keys.me);
+        receive(result.state, true);
+      },
+    });
+  });
+
+  $("rename-me").addEventListener("click", () => {
+    if (!me || !state) return;
+    const mine = state.entries.find((entry) => entry.id === me.entryId);
+    if (!mine) return;
+    ask({
+      title: "Change your name",
+      text: "You keep your place in line.",
+      input: { label: "Your name", value: mine.name, max: 40 },
+      ok: "Save name",
+      onConfirm: async (value) => {
+        const result = await api(`/api/q/${id}/rename`, { method: "POST", body: { entryId: me.entryId, token: me.token, name: value } });
+        store.set("nextup.name", value.trim());
+        receive(result.state, true);
+      },
+    });
+  });
+
+  // ---- Buttons: owner ----
+  $("copy-public").addEventListener("click", () => copyText(publicLink, "Queue link copied."));
+  $("copy-owner-new").addEventListener("click", () => copyText(ownerLink(), "Owner link copied. Keep it private."));
+  $("copy-owner").addEventListener("click", () => copyText(ownerLink(), "Owner link copied. Keep it private."));
+  $("ready-close").addEventListener("click", () => { $("ready").hidden = true; });
+
+  $("next").addEventListener("click", () => {
+    if (state && state.entries.length) removeEntry(state.entries[0].id);
+  });
+
+  $("toggle-open").addEventListener("click", () => {
+    const open = !state.open;
+    ownerChange("settings", { open }, () => { state = { ...state, open }; });
+    say(open ? "Queue reopened to new names." : "Queue closed to new names.");
+  });
+
+  $("rename-queue").addEventListener("click", () => {
+    ask({
+      title: "Rename queue",
+      input: { label: "Queue name", value: state.title, max: 60 },
+      ok: "Save name",
+      onConfirm: (value) => ownerChange("settings", { title: value }, null, true),
+    });
+  });
+
+  $("rotate").addEventListener("click", () => {
+    ask({
+      title: "Reset the owner link?",
+      text: "Every copy of the current owner link stops working. This device stays the owner, and you get a new link to share with co-hosts.",
+      ok: "Reset owner link",
+      danger: true,
+      onConfirm: async () => {
+        const result = await ownerChange("rotate", {}, null, true);
+        ownerKey = result.ownerKey;
+        store.set(keys.owner, ownerKey);
+        toast("Owner link reset. Copy the new one for your co-hosts.");
+      },
+    });
+  });
+
+  $("clear").addEventListener("click", () => {
+    const count = state.entries.length;
+    ask({
+      title: "Clear the queue?",
+      text: count === 1 ? "This removes the 1 name in the queue." : `This removes all ${count} names.`,
+      ok: "Clear queue",
+      danger: true,
+      onConfirm: () => ownerChange("clear", {}, null, true),
+    });
+  });
+
+  // Tap a name to select it; the options bar appears at the bottom.
+  $("list").addEventListener("click", (event) => {
+    if (!isOwner) return;
+    const main = event.target.closest("button.row-main");
+    if (!main) return;
+    const entryId = main.parentElement.dataset.id;
+    selectedId = selectedId === entryId ? null : entryId;
+    render();
+    if (selectedId) {
+      const chosen = state.entries.find((entry) => entry.id === selectedId);
+      if (chosen) say(`${chosen.name} selected. Move, rename and remove buttons are at the bottom of the page.`);
+    }
+    if (selectedId && event.detail === 0) {
+      // Opened from the keyboard or a screen reader: move into the options.
+      const first = $("bar").querySelector('[data-act][aria-disabled="false"]');
+      if (first) first.focus();
+    }
+  });
+
+  function closeBar() {
+    const entryId = selectedId;
+    selectedId = null;
+    render();
+    const row = entryId && $("list").querySelector(`.row[data-id="${entryId}"] .row-main`);
+    if (row) row.focus();
+  }
+  $("bar-close").addEventListener("click", closeBar);
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || dialog.open) return;
+    if (drag) cancelDrag();
+    else if (selectedId) closeBar();
+  });
+
+  $("bar").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-act]");
+    if (!button || !selectedId || button.getAttribute("aria-disabled") === "true") return;
+    const entries = state.entries;
+    const index = entries.findIndex((entry) => entry.id === selectedId);
+    if (index === -1) return;
+    const entry = entries[index];
+    switch (button.dataset.act) {
+      case "top": moveTo(entry.id, 0); break;
+      case "up": moveTo(entry.id, index - 1); break;
+      case "down": moveTo(entry.id, index + 1); break;
+      case "bottom": moveTo(entry.id, entries.length - 1); break;
+      case "rename":
+        ask({
+          title: "Rename",
+          text: `${entry.name} keeps the same place in line.`,
+          input: { label: "Name", value: entry.name, max: 40 },
+          ok: "Save name",
+          onConfirm: (value) => ownerChange("rename", { entryId: entry.id, name: value }, null, true),
+        });
+        break;
+      case "remove":
+        ask({
+          title: `Remove ${entry.name}?`,
+          text: "They lose their place in line.",
+          ok: "Remove",
+          danger: true,
+          onConfirm: async () => { removeEntry(entry.id); },
+        });
+        break;
+    }
+  });
+
+  // ---- Drag to reorder (owner) ----
+  const list = $("list");
+
+  list.addEventListener("pointerdown", (event) => {
+    const grip = event.target.closest(".grip");
+    if (!grip || !isOwner || drag || (event.pointerType === "mouse" && event.button !== 0)) return;
+    event.preventDefault();
+    const row = grip.parentElement;
+    const rows = [...list.children];
+    const index = rows.indexOf(row);
+    const boxes = rows.map((item) => item.getBoundingClientRect());
+    const gap = index + 1 < rows.length ? boxes[index + 1].top - boxes[index].bottom
+      : index > 0 ? boxes[index].top - boxes[index - 1].bottom : 0;
+    drag = {
+      id: row.dataset.id,
+      row, rows, index, grip,
+      target: index,
+      pointerId: event.pointerId,
+      startY: event.clientY + window.scrollY,
+      lastClientY: event.clientY,
+      middles: boxes.map((box) => box.top + window.scrollY + box.height / 2),
+      step: boxes[index].height + gap,
+      frame: 0,
+    };
+    try { grip.setPointerCapture(event.pointerId); } catch {}
+    list.classList.add("sorting");
+    row.classList.add("dragging");
+    drag.frame = requestAnimationFrame(autoScroll);
+  });
+
+  list.addEventListener("pointermove", (event) => {
+    if (!drag || event.pointerId !== drag.pointerId) return;
+    drag.lastClientY = event.clientY;
+    positionDrag();
+  });
+
+  function positionDrag() {
+    const offset = drag.lastClientY + window.scrollY - drag.startY;
+    drag.row.style.transform = `translateY(${offset}px)`;
+    const centre = drag.middles[drag.index] + offset;
+    let target = 0;
+    drag.rows.forEach((row, i) => { if (i !== drag.index && drag.middles[i] < centre) target += 1; });
+    drag.target = target;
+    drag.rows.forEach((row, i) => {
+      if (i === drag.index) return;
+      let shift = 0;
+      if (i < drag.index && i >= target) shift = drag.step;
+      else if (i > drag.index && i <= target) shift = -drag.step;
+      row.style.transform = shift ? `translateY(${shift}px)` : "";
+    });
+  }
+
+  function autoScroll() {
+    if (!drag) return;
+    const edge = 70;
+    const bottomLimit = window.innerHeight - edge - ($("bar").hidden ? 0 : $("bar").offsetHeight);
+    let speed = 0;
+    if (drag.lastClientY < edge) speed = -Math.ceil((edge - drag.lastClientY) / 6);
+    else if (drag.lastClientY > bottomLimit) speed = Math.ceil((drag.lastClientY - bottomLimit) / 6);
+    if (speed) {
+      const before = window.scrollY;
+      window.scrollBy(0, Math.max(-18, Math.min(18, speed)));
+      if (window.scrollY !== before) positionDrag();
+    }
+    drag.frame = requestAnimationFrame(autoScroll);
+  }
+
+  function endDrag(commit) {
+    if (!drag) return;
+    const finished = drag;
+    cancelAnimationFrame(finished.frame);
+    try { finished.grip.releasePointerCapture(finished.pointerId); } catch {}
+    list.classList.remove("sorting");
+    for (const row of finished.rows) { row.style.transform = ""; row.classList.remove("dragging"); }
+    drag = null;
+    if (commit && finished.target !== finished.index) moveTo(finished.id, finished.target);
+    flushWaiting();
+  }
+  function cancelDrag() { endDrag(false); }
+  list.addEventListener("pointerup", (event) => { if (drag && event.pointerId === drag.pointerId) endDrag(true); });
+  list.addEventListener("pointercancel", (event) => { if (drag && event.pointerId === drag.pointerId) endDrag(false); });
+}
+})();
+</script>
+</body>
+</html>
